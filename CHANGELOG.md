@@ -2,6 +2,8 @@
 
 ## [v0.0.1](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.12...v0.0.1) - 2024-11-24
 
+## [v0.0.1](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.12...v0.0.1) - 2024-11-24
+
 ## [v2024.12.12](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.11...v2024.12.12) - 2024-11-24
 
 ## [v2024.12.11](https://github.com/kounoike/shinjkugyoen-wasm-20241211/commits/v2024.12.11) - 2024-11-24
