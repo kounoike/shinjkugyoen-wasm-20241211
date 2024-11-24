@@ -1,5 +1,7 @@
 # Changelog
 
+## [v0.1.1](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.12...v0.1.1) - 2024-11-24
+
 ## [v0.1.0](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.12...v0.1.0) - 2024-11-24
 
 ## [v0.1.0](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.12...v0.1.0) - 2024-11-24
