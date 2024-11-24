@@ -11,7 +11,6 @@ transition: slide-left
 title: Screeps Arena における多プログラミング言語対応について
 mdc: true
 addons:
-  - "@katzumi/slidev-addon-qrcode"
   - slidev-addon-components
   - slidev-addon-rabbit
 ---
