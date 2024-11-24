@@ -1,5 +1,7 @@
 # Changelog
 
+## [v2024.12.12](https://github.com/kounoike/shinjkugyoen-wasm-20241211/compare/v2024.12.11...v2024.12.12) - 2024-11-24
+
 ## [v2024.12.11](https://github.com/kounoike/shinjkugyoen-wasm-20241211/commits/v2024.12.11) - 2024-11-24
 - Bump @iconify-json/devicon from 1.2.4 to 1.2.6 by @dependabot in https://github.com/kounoike/shinjkugyoen-wasm-20241211/pull/5
 - Bump @iconify-json/fa6-brands from 1.2.1 to 1.2.3 by @dependabot in https://github.com/kounoike/shinjkugyoen-wasm-20241211/pull/4

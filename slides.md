@@ -4,7 +4,7 @@ class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## 新宿御苑.wasm #2024.12.11 こーのいけ 発表スライド
+  ## 新宿御苑.wasm #2024.12.12 こーのいけ 発表スライド
 drawings:
   persist: false
 transition: slide-left
