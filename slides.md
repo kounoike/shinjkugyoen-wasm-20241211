@@ -1,445 +1,243 @@
 ---
 theme: seriph
-background: https://cover.sli.dev
 class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## 新宿御苑.wasm #2024.12.11 こーのいけ 発表スライド
 drawings:
   persist: false
 transition: slide-left
-title: Welcome to Slidev
+title: "Screeps: Arena における多プログラミング言語対応について"
 mdc: true
 addons:
-  - '@katzumi/slidev-addon-qrcode'
+  - "@katzumi/slidev-addon-qrcode"
   - slidev-addon-components
   - slidev-addon-rabbit
 ---
 
-# Welcome to Slidev
+# Screeps: Arena における<br />多プログラミング言語対応について
 
-Presentation slides for developers @ v0.1.7
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/k2tzumi/slidev-boilerplate" target="_blank" alt="GitHub" title="Open in GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+こーのいけ 2024/12/11 新宿御苑.wasm #2024.12.11
 
 ---
-transition: fade-out
 ---
 
-# What is Slidev？
+# TL; DR
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+今北産業
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+「色んな言語で bot AI が書ける!」というふれこみのScreeps: Arena の話
 
-<br>
-<br>
+「チュートリアルやってみますたｗｗｗ」じゃないよ
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+WebAssembly で色々な言語で書けるけど、結局 TypeScript で書いた方が楽
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
+👆スライド書き終わって一番最後にココ書いたら三行目は Copilot が勝手に入れてくれた
 
 ---
-layout: default
+---
+
+# Who am I?
+
+ふーあみ
+
+こーのいけ
+
+X: @ko_noike
+github/zenn: kounoike
+
+フリーランスエンジニア
+
+なんか画像処理とか映像処理とかWebRTCとか録画鯖関係とか色々やってます。
+
+TODO: icon, QR code
+
+---
 ---
 
 # Table of contents
 
-```html
-<Toc minDepth="1" maxDepth="1"></Toc>
-```
-
 <Toc maxDepth="1"></Toc>
 
 ---
-transition: slide-up
-level: 2
 ---
 
-# Navigation
+# Screeps: Arena
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
+コードを書いて対戦するプログラミングゲーム
 
-## Keyboard Shortcuts
+Steam で販売されている、2,000 円くらいのゲーム
 
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
+Screeps: World は別のゲーム（MMO ライクなプログラミングゲーム）
 
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly！[^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
 <div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
+<img style="display: inline;" border="rounded" width="40%" src="./screeps-arena.png">
+<img style="display: inline;" border="rounded" width="40%" src="./screeps-world.png">
 </div>
 
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
+---
+---
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
+# Screeps: Arena 対応プログラミング言語
+
+Screeps: Arena は以下のプログラミング言語に対応している…？
+
+> You don't control your units directly, you play by writing full-fledged JavaScript that runs on game servers.
+> Other languages are supported via WebAssembly: C/C++, Rust, TypeScript, Go, C#, F#, Kotlin, Swift, D, Pascal, Zig, the list is growing.
+
+となっているが…？
 
 
 ---
-class: px-20
 ---
 
-# Themes
+# Screeps: Arena ゲームの記述方法
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+JavaScript で書く場合の記述方法
 
-<div grid="~ cols-2 gap-2" m="-t-2">
+適当なディレクトリをゲーム内で指定すると、
+そのディレクトリの中身を zip してアップロードしてくれる
 
-```yaml
----
-theme: default
----
-```
+その中の main.mjs ファイルで loop 関数をエクスポートすると、それがゲームの毎 tick （ターン）ごとに呼び出される
 
-```yaml
----
-theme: seriph
----
-```
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
+```js
+import { getObjectsByPrototype, getTicks } from 'game/utils';
+import { Creep } from 'game/prototypes';
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
+export function loop(){
+    const ticks = getTicks();
+    console.log(`Hello, now ${ticks} ticks`);
 
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
+    const creeps = getObjectsByPrototype(Creep);
+    const myCreep = creeps.find(c => c.my);
+    if (myCreep) {
+        myCreep.moveTo({x: 10, y: 10});
+    }
 }
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
 ```
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
 ---
-src: ./pages/multiple-entries.md
-hide: false
 ---
 
+# ユーザが書いたコードを実行する仕組み
+
+誰が書いたか分からないコードを **安全** に実行する仕組み
+
+Screeps: Arena のサーバでは V8 Runtime の isolate-vm でユーザが書いたコードを実行している
+
+（wasmer とかの WebAssembly runtime **では無い**）
+
+→ TypeScript で書いたらユーザがトランスパイルして（JavaScript にして）アップロードする
+
+→ V8 Runtime で動いているので WebAssembly が使える
+
+→ WebAssembly が使えるならどんな言語でも使える（？？？）
+
 ---
-layout: center
-class: text-center
 ---
 
-# Learn More
+# WebAssembly 対応のホントのところ
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+Screeps: Arena は WebAssembly が使えると言っているが、実際はどうなのか？
 
-<div class="flex justify-center">
-  <QRCode value="https://github.com/k2tzumi/slidev-boilerplate" color="0e0c0d" image="github-mark.svg" />
-</div>
+- WebAssembly.instanciate() は使える
+- ネットワーク関連はもちろん、fs モジュールも使えないので、.wasm ファイルを直接読むことは出来ない
+
+→バンドラで JavaScript に **文字列として** 埋め込むことになる
+
+- 文字列にする都合上、Base64 エンコードする必要がある
+- （多分ランタイムのバージョンの関係で？）atob 関数とかが使えない
+
+→自前で Base64 エンコードする必要がある
+
+- JavaScript で書かれた Base64 ライブラリが必要（npm にある）
+
+（ついでにログ表示とかに UTF-8 変換が必要だがそれも使えないので npm からフル JavaScript のライブラリを持ってくる）
+
+---
+---
+
+# WebAssembly 対応のホントのところ (2) 関数・型
+
+ゲームに必要な関数・型関係
+
+Screeps: Arena ではゲームに必要な関数（getObjects とか findPath とか）はインポート可能な js ファイルを**サーバ側で追加**して実行される
+（ユーザはどんな実装になってるか分からない）
+また、それらの関数とそれらの関数が使うオブジェクトの型情報は
+
+- **TypeScript の型定義ファイル** でユーザコミュニティから提供されている
+- リリース後だいぶ経ってから JS の typings ファイルが提供された
+- 他の言語の場合は自分で定義する必要がある（Rust, C# などはユーザコミュニティが公開している）
+    - しかも、普通に WebAssembly Module に import/export で橋渡しをしなければならない
+
+---
+---
+
+# WebAssembly 対応のホントのところ (3) 結論
+
+結局どうなのか？
+
+WebAssembly で色々な言語で書ける！　…ただし、すっごい頑張ればね！
+
+ユーザコミュニティが頑張ってる言語なら何とか…
+
+Rust/.Net/Python あたりはユーザコミュニティが頑張ってるみたいだけど…？
+
+**正直 JavaScript or TypeScript で書いた方が圧倒的に楽**
+
+（.Net で頑張っている人がいるおかげで F# で書いてる人がいるみたいで、それはちょっと面白そう）
+
+---
+---
+
+# それでも何故 WebAssembly を使うのか？
+
+Screeps: Arena の制限
+
+Screeps: Arena のユーザコードには以下のような制限がある
+
+- 実行時間制限
+  - 1 tick あたり 50ms まで（最初の tick だけ 1000ms）
+  - とはいえ、WebAssembly で書いたからと言って爆速になるわけではない
+- メモリ制限
+  - JavaScript のヒープサイズに制限がある
+  - ところが、WebAssembly の線形メモリはこの制限には **含まれない**
+  - 100x100 x 100x100 のUInt32Array を JavaScript では作れないが、WebAssembly なら作れる
+    - マップの任意の点から任意の点への移動経路を計算した結果をキャッシュするのに使える
+
+---
+---
+
+# で、どの言語がオススメ？
+
+閑話~~休題~~暴走
+
+基本的には TypeScript で書く（やっぱり型があるのは嬉しい）
+
+経路探索とかの重い処理・キャッシュにメモリを使いたい場合は WebAssembly で書く
+
+> 実行時間制限 1tick あたり 50ms
+
+この制限が来ると、WebAssembly の中でどんな処理をしているタイミングだろうが処理が打ち切られる。
+そして、そんなことにはお構いなく次の tick の処理が始まる。
+
+⇒ メモリ管理周りの処理してる途中で打ち切られているとぶっ壊れる
+
+**そんなとき便利なのが Zig 言語の `fixedBufferAllocator`**
+
+ヒープではなく固定領域のバッファ内からメモリを切り出していくので、Tick ごとに初期化して使っていれば安全
+
+
+---
+---
+
+# 結果
+
+で、どうなったか？
+
+⇒全ゲームで 3 位以内!!!
+
+<img src="./ranking.png" width="70%">
+
