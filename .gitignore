@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+dist
+docs
+*.local
+index.html
+.remote-assets
+components.d.ts
+slides-export.pdf
+slides-export.pptx
+slides-export-notes.pdf
+.vite
+.textlintcache
